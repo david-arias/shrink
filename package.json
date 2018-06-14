@@ -1,0 +1,23 @@
+{
+  "name": "firebase-app",
+  "version": "1.0.0",
+  "description": "test firebase app",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "@devius123",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-connect-php": "^1.0.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-uglifyes": "^0.1.3",
+    "pump": "^2.0.0"
+  },
+  "dependencies": {}
+}
