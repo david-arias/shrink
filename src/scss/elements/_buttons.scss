@@ -1,0 +1,62 @@
+
+/* ELEMENTS BUTTONS */
+.btn {
+     display: inline-block;
+     height: 40px;
+     margin: 0 4px 15px;
+     padding: 0 20px;
+     width: auto;
+     background: none;
+     overflow: visible;
+     appearance: none;
+     transition: all .1s ease-out;
+     font-size: 14px;
+     font-weight: 600;
+     color: inherit;
+     line-height: 40px;
+     letter-spacing: 1px;
+     text-decoration: none;
+     text-transform: uppercase;
+     white-space: nowrap;
+     border-radius: 5px;
+     border: thin solid #CCCCCC;
+     outline: none;
+
+     &.btn-round {
+           border-radius: 24px;
+     }
+
+     @each $bg, $bgColor in $colors {
+           &.btn-#{$bg} {
+                 background-color: $bgColor;
+                 border-color: $bgColor;
+
+                 @include textColorLigthness ( $bgColor );
+
+                 &:hover {
+                       background-color: lighten($bgColor, 7.5%);
+                       border-color: lighten($bgColor, 7.5%);
+                       text-decoration: none;
+                 }
+
+                 &.btn-outline {
+                       background: none;
+                       border-color: $bgColor;
+                       color: $bgColor;
+
+                       @if (lightness($bgColor) > 70) {
+                             color: darken($bgColor, 50%)
+                       }
+
+                       &:hover {
+                             background: $bgColor;
+                             border-color: $bgColor;
+                             
+                             @include textColorLigthness ( $bgColor );
+                             
+                             
+                       }
+                 }
+           }
+     }
+}

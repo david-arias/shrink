@@ -1,0 +1,88 @@
+
+/* MAKE ROW */
+@mixin create_row() {
+     display: flex;
+     flex-wrap: wrap;
+     flex-direction: row;
+     margin-top: $grid_w_Gutter / 2;
+     margin-bottom: $grid_w_Gutter / 2;
+};
+@mixin make_row() {
+     @include create_row();
+
+     margin-right: ($grid_w_Gutter / -2);
+     margin-left: ($grid_w_Gutter / -2);
+     
+     @include mediaQ_minMax_width ( nth(nth($grid_breaks, 1 ),2), nth(nth($grid_breaks, 2),2)  ) {
+		margin-right: 0;
+		margin-left: 0;
+	}
+};
+@mixin make_row_fluid() {
+     @include create_row();
+
+     padding-right: ($grid_w_Gutter / 2);
+     padding-left: ($grid_w_Gutter / 2);
+     
+
+     @include mediaQ_minMax_width ( nth(nth($grid_breaks, 1 ),2), nth(nth($grid_breaks, 2),2)  ) {
+		padding-right: 0;
+		padding-left: 0;
+	}
+};
+
+/* MAKE COLS */
+@mixin make-col($size, $columns: $grid-cols) {
+	flex: 0 0 percentage($size / $columns);
+	max-width: percentage($size / $columns);
+}
+
+@mixin make-col-offset( $size, $columns: $grid-cols ) {
+	$num: $size / $columns;
+	margin-left: if($num == 0, 0, percentage($num));
+}
+
+@mixin make_grid_cols( $gutter:$grid_w_Gutter, $breakpoints: $grid_breaks ){
+     %grid-column {
+          position: relative;
+		width: 100%;
+		min-height: 1px;
+
+		box-sizing: border-box;
+
+		padding-right: ($gutter / 2);
+		padding-left: ($gutter / 2);
+
+		@include mediaQ_minMax_width ( nth(nth($grid_breaks, 1 ),2), nth(nth($grid_breaks, 2),2)  ) {
+			padding-right: ($gutter / 6);
+			padding-left: ($gutter / 6);
+		}
+     }
+
+     @each $breakName, $breakSize in $breakpoints {
+		$infix: breakpoint-infix($breakName, $breakpoints);
+
+		@for $i from 1 through $grid-cols {
+			.col#{$infix}_#{$i} {
+				@extend %grid-column;
+			}
+          }
+
+          $max : map-get($breakpoints, $breakName );
+		@include mediaQ_min_width ( $max ) {
+
+			@for $i from 1 through $grid-cols {
+				.col#{$infix}_#{$i} {
+					@include make-col($i, $grid-cols);
+				}
+	    	     }
+
+			@for $i from 0 through ($grid-cols - 1) {
+				.offset#{$infix}_#{$i} {
+					@include make-col-offset($i, $grid-cols);
+				}
+               }
+                   
+		}
+     }
+}

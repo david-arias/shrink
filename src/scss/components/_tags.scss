@@ -1,0 +1,40 @@
+
+// TAGS
+$deafult-Tag-bg: #f2f2f2;
+$deafult-Tag-color: #333;
+
+.tags {
+     display: flex;
+     flex-wrap: wrap;
+     list-style: none;
+ 
+     .tag {
+         margin-right: 5px;
+         padding: 5px 15px;
+         font-size: 14px;
+         font-weight: 400;
+         border-radius: 4px;
+         color: $deafult-Tag-color;
+         background: $deafult-Tag-bg;
+         box-shadow: 0 2px 4px rgba($deafult-Tag-color, 0.3);
+ 
+         a {
+             display: block;
+             color: #ffffff;
+         }
+ 
+     }
+ 
+     .tag-rounded {
+         border-radius: 16px;
+     }
+ 
+     @each $bg, $bgColor in $colors {
+          .tag-#{$bg} {
+               background-color: $bgColor;
+               border-color: $bgColor;
+
+               @include textColorLigthness ( $bgColor );
+          }
+     }
+ }

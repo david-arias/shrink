@@ -1,0 +1,23 @@
+
+/* ELEMENTS DISPLAYS */
+.display-md-down {
+     display: none;
+
+     @include mediaQ_minMax_width( nth(nth($grid_breaks, 1 ),2) , nth(nth($grid_breaks, 2 ),2) ) {
+           display: block;
+     }
+}
+.display-md-to-lg {
+     display: none;
+
+     @include mediaQ_minMax_width( nth(nth($grid_breaks, 2 ),2) , nth(nth($grid_breaks, 4 ),2) ) {
+          display: block;
+     }
+}
+.display-lg-up {
+     display: none;
+
+     @include mediaQ_min_width( nth(nth($grid_breaks, 4 ),2) ) {
+           display: block;
+     }
+}

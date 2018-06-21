@@ -30,24 +30,24 @@ gulp.task('serve', ['sassCompi'], function() {
 	});
 
 	gulp.watch("src/scss/**/*.scss", ['sassCompi']);
-	console.log('\n'+'- - - - - > WATCH SASS/CSS FILES ✅ . . .'+'\n');
+	console.log('\n'+'- - - - - > WATCH SASS/CSS FILES ✅ ');
 
 	gulp.watch("src/js/**/*.js", ['jsCompress']);
 	gulp.watch("app/js/*.js").on('change', browserSync.reload);
-	console.log('\n'+'- - - - - > WATCH JS FILES ✅ . . .'+'\n');
+	console.log('\n'+'- - - - - > WATCH JS FILES ✅ ');
 
 	gulp.watch("app/*.html").on('change', browserSync.reload);
-	console.log('\n'+'- - - - - > WATCH RELOAD HTML FILES ✅ . . .'+'\n');
+	console.log('\n'+'- - - - - > WATCH RELOAD HTML FILES ✅ ');
 
 	gulp.watch("app/*.php").on('change', browserSync.reload);
-	console.log('\n'+'- - - - - > WATCH RELOAD PHP FILES ✅ . . .'+'\n');
+	console.log('\n'+'- - - - - > WATCH RELOAD PHP FILES ✅ '+'\n');
 });
 
 // sass compilation
 gulp.task('sassCompi', function() {
 	return gulp.src('src/scss/**/*.scss')
 	.pipe(sass().on('error', sass.logError))
-	.pipe(cssnano())
+	// .pipe(cssnano())
 	.pipe(autoprefixer({
 		browsers: ['last 10 versions'],
 		cascade: false

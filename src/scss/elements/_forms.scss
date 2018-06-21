@@ -1,0 +1,209 @@
+
+/* ELEMENTS FORMS */
+fieldset {
+     margin: 0 0 20px 0;
+     padding: 15px;
+     font-size: 14px;
+     border: 1px solid $input-border-color;
+     border-radius: 5px;
+     
+     legend {
+           padding: 0 5px;
+     }
+}
+.form-control {
+     position: relative;
+     margin: 0 0 20px 0;
+
+     label {
+           font-family: $light_typo;
+           font-size: 0.9em;
+           display: block;
+           margin: 0 0 5px 0;
+           
+     }
+
+     .validation-error {
+           display: none;
+           font-size: 0.9em;
+           color: $input-invalid-color;
+           margin: 5px 0 10px 0;
+     }
+
+     %inputGeneral {
+           appearance: none;
+           display: block;
+           line-height: 1.3;
+           font-size: 1em;
+           font-weight: inherit;
+           background: $input-bg-color;
+           border-radius: 5px;
+           border: 1px solid $input-border-color;
+           outline: none;
+           color: $input-text-color;
+           font-family: $light_typo;
+           padding: 10px;
+     
+           &::placeholder {
+                 color: $input-placeholder-color;
+                 font-family: $light_typo;
+           }
+     
+           &:focus {
+                 outline: none;
+                 border-color: $input-active-color;
+           }
+
+           &:disabled {
+                 opacity: 0.5;
+           }
+     }
+
+     input[type="text"], input[type="password"] {
+           @extend %inputGeneral;
+           width: calc( 100% - 22px );
+     }
+     select {
+           @extend %inputGeneral;
+           width: 100% ;
+
+           background: $input-bg-color url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 0 29 14" width="29"><path fill="' + $input-border-color + '" d="M9.37727 3.625l5.08154 6.93523L19.54036 3.625"/></svg>') center right no-repeat;
+
+           padding-right: 30px;
+             
+           &:hover {
+                 cursor: pointer;
+           }
+     }
+
+     textarea {
+           width: calc( 100% - 22px );
+           min-height: 100px;
+           font-size: 16px;
+           font-weight: 300;
+           line-height: 1.4;
+           padding: 10px;
+           color: $input-text-color;
+           background-color: $input-bg-color;
+           border: 1px solid $input-border-color;
+           border-radius: 5px;
+           resize: none;
+       
+           &::placeholder {
+               color: $input-placeholder-color;
+               font-family: $light_typo;
+           }
+       
+           &:focus {
+               border-color: $input-active-color;
+               outline: none;
+           }
+     }
+
+     &.invalid {
+           .validation-error {
+                 display: block;
+           }
+           input[type="text"],
+           input[type="password"],
+           select,
+           textarea {
+                 border-color: $input-invalid-color;
+           }
+
+           select {
+                 background: $input-bg-color url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 0 29 14" width="29"><path fill="' + $input-invalid-color + '" d="M9.37727 3.625l5.08154 6.93523L19.54036 3.625"/></svg>') center right no-repeat;
+           }
+     }
+
+     .checkbox-item {
+           input[type="checkbox"], label {
+                 display: inline-block;
+           }
+
+           &.custom {
+                 position: relative;
+                 margin: 0 0 15px 0;
+
+                 input[type="checkbox"] {
+                       position: absolute;
+                       visibility: hidden;
+                 }
+                 label {
+                       padding: 0 0 0 30px;
+                 }
+                 .check {
+                       width: 20px;
+                       height: 20px;
+                       z-index: -1;
+                       background: $input-bg-color;
+                       border: thin solid $input-border-color;
+                       position: absolute;
+                       top: 1px;
+                       border-radius: 4px; 
+
+                       background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="' + nth( nth($colors,1) ,2) + '" d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>') center center no-repeat;
+                       background-size: 0%;
+
+                       @include transitionAll( 0.1s );
+                 }
+
+                 input[type=checkbox]:checked ~ .check {
+                       border: thin solid nth( nth($colors,1) ,2);
+                       background-size: 80%;
+                 }
+           }
+     }
+     .radio-item {
+           input[type="radio"], label {
+                 display: inline-block;
+           }
+
+           &.custom {
+                 position: relative;
+                 margin: 0 0 15px 0;
+
+                 input[type="radio"] {
+                       position: absolute;
+                       visibility: hidden;
+                 }
+                 label {
+                       padding: 0 0 0 30px;
+                 }
+                 .rad {
+                       width: 20px;
+                       height: 20px;
+                       z-index: -1;
+                       background: $input-bg-color;
+                       border: thin solid $input-border-color;
+                       position: absolute;
+                       top: 1px;
+                       border-radius: 50%;
+
+                       &:before {
+                             content: "";
+                             width: 0px;
+                             height: 0px;
+                             position: absolute;
+                             top: 50%;
+                             left: 50%;
+                             border-radius: 50%;
+                             transform: translate(-50%,-50%);
+
+                             @include transitionAll( 0.1s );
+                       }
+                 }
+
+                 input[type=radio]:checked ~ .rad {
+                       border: thin solid nth( nth($colors,1) ,2);
+                       background-size: 80%;
+
+                       &:before {
+                             width: 11px;
+                             height: 11px;
+                             background: nth( nth($colors,1) ,2);
+                       }
+                 }
+           }
+     }
+}

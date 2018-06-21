@@ -1,0 +1,34 @@
+
+// Progress bars
+$bgProgress-color: #f2f2f2;
+$progress-color: nth( nth($colors, 6),2);
+$progressTxt-color: #fff;
+$progress-height: 22px;
+
+.progress {
+     width: 100%;
+     height: $progress-height;
+     background: $bgProgress-color;
+     margin: #{ $progress-height} 0;
+     border-radius: 5px;
+     overflow: hidden;
+
+     .progress-bar {
+          height: $progress-height;
+          background: $progress-color;
+
+          color: $progressTxt-color;
+          font-family: $bold_typo;
+          font-size: $progress-height * 0.7;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+     }
+
+     &.progressAnima {
+          .progress-bar {
+               @include animaStripes();
+          }
+     }
+}

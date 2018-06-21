@@ -1,0 +1,81 @@
+
+// PAGINATION
+$main-pags-color: nth( nth($colors,5),2);
+
+.pags-wrap {
+     .pags {
+          display: flex;
+          list-style: none;
+          margin: 15px 0;
+              width: max-content;
+      
+          li {
+              margin: 0 5px;
+      
+               a {
+                    display: block;
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                    background: lighten( $main-pags-color , 15%) ;
+                    border: 1px solid lighten( $main-pags-color , 5%);
+                    text-decoration: none;
+
+                    @include textColorLigthness ( $main-pags-color );
+
+                    @include mediaQ_minMax_width ( nth(nth($grid_breaks, 1 ),2), nth(nth($grid_breaks, 3),2)  ) {
+                         padding: 3px 7px;
+                    }
+
+                    &.active,
+                    &:hover {
+                         opacity: 1;
+                         background: lighten( $main-pags-color , 5%) ;
+                    }
+
+                    &.active {
+                         background: lighten( $main-pags-color , 5%) ;
+                         @include textColorLigthness ( $main-pags-color );
+                         font-family: $bold_typo;
+                    }
+
+                    &:active {
+                         transform: scale(0.95);
+                    }
+
+                    &.disabled {
+                         opacity: 0.5;
+                         pointer-events: none;
+                    }
+               }
+          }
+     }
+
+     &.pags-wrap-left {
+          display: flex;
+          justify-content: flex-start;
+
+          @include mediaQ_minMax_width ( nth(nth($grid_breaks, 1 ),2), nth(nth($grid_breaks, 2),2)  ) {
+               justify-content: center;
+          }
+
+     }
+     &.pags-wrap-center {
+          display: flex;
+          justify-content: center;
+
+          @include mediaQ_minMax_width ( nth(nth($grid_breaks, 1 ),2), nth(nth($grid_breaks, 2),2)  ) {
+               justify-content: center;
+          }
+
+     }
+     &.pags-wrap-right {
+          display: flex;
+          justify-content: flex-end;
+
+          @include mediaQ_minMax_width ( nth(nth($grid_breaks, 1 ),2), nth(nth($grid_breaks, 2),2)  ) {
+               justify-content: center;
+          }
+
+     }
+
+}

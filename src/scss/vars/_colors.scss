@@ -1,0 +1,64 @@
+
+
+// color list
+     $colors: (
+          success: #10ac84,
+          danger: #ee5253,
+          warning: #f39c12,
+          info: #54a0ff,
+          
+          light: #c8d6e5,
+          dark: #222f3e,
+     );
+
+// NAVBAR 
+     $navbar-bg-color: nth(nth($colors,6),2);
+
+// BLOCK QUOTES
+     $bg-bg-color: #f2f2f2;
+
+// TABLE
+     $table-border: #eee;
+     $table-Head-color: lighten(#333, 30%);
+
+
+// FORMS
+     $input-bg-color: #FFFFFF;
+     $input-border-color: #CCCCCC;
+     $input-active-color: nth( nth($colors, 4) ,2);
+
+     $input-text-color: #333333;
+     $input-placeholder-color: lighten( $input-text-color, 50%);
+     $input-invalid-color: nth( nth($colors, 2) ,2);
+
+
+// CODE - PRISM JS
+     /* Background */
+     $code-bg: #222f3e; // default: #272822;
+
+     /* comment - prolog - doctype - cdata */
+     $code-cmmt: #576574; // default: #708090;
+
+     /* punctuation */
+     $code-pun: #c8d6e5; // default: #f8f8f2;
+
+     /* property - tag - constant - symbol - deleted */
+     $code-tag: #80CBC4; // default: #f92672;
+
+     /* selector - attrName - string - char - builtin - inserted */
+     $code-attrName: #9CCC65; // default: #a6e22e;
+
+     /* selector - attrValue - string - char - builtin - inserted */
+     $code-attrVal: #e2b93d; // default: #e6db74;
+
+     /* boolean - number */
+     $code-bool: #EF5350; // default: #ae81ff;
+
+     /* operator - entity - url - string - variable */
+     $code-str: #FFFFFF; // default: #f8f8f2;
+
+     /* regex - important */
+     $code-important: #C792EA; // default: #fd971f;
+
+     /* keyword */
+     $code-keyWord: #66d9ef; // default: #66d9ef;

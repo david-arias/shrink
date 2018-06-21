@@ -1,0 +1,35 @@
+
+
+/* ELEMENTS BLOCK QUOTES */
+blockquote {
+     padding: 1.4em 45px;
+     background: $bg-bg-color;
+     margin: 15px 0;
+
+     @each $bg, $bgColor in $colors {
+           &.bq-#{$bg} {
+                 border-left: 5px dashed $bgColor;
+           }
+     }
+}
+q {
+     margin: 20px 0 20px 0;
+     display: block;
+
+     @each $bg, $bgColor in $colors {
+           &.q-#{$bg} {
+                 &:before, &:after {
+                       color: $bgColor;
+                 }
+           }
+     }
+
+     &:before, &:after {
+           content: '"';
+           font-size: 2em;
+           line-height: 1;
+           font-weight: bolder;
+
+           
+     }
+}

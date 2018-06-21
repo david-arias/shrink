@@ -1,0 +1,31 @@
+
+/* CONTAINER */
+@mixin make_container (){     
+     width: 100%;
+	padding-right: ($grid_w_Gutter / 2);
+	padding-left: ($grid_w_Gutter / 2);
+	margin-right: auto;
+     margin-left: auto;
+     
+     @include mediaQ_minMax_width ( nth(nth($grid_breaks, 1 ),2), nth(nth($grid_breaks, 2),2)  ) {
+		padding-right: 0;
+		padding-left: 0;
+	}
+}
+@mixin make_container_MaxWidth ( $maxW: $container_maxWs, $breakpnts: $grid_breaks ){
+	@each $break, $cont_max_width in $maxW {
+		$max : map-get($breakpnts, $break );
+		@include mediaQ_min_width ( $max ) {
+			max-width: $cont_max_width;
+		}
+	}
+}
+
+/* CONTAINER FLUID */
+@mixin make_container_fluid() {
+	width: 100% ;
+	padding-right: 0;
+	padding-left: 0;
+	margin-right: auto;
+	margin-left: auto;
+}

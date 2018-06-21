@@ -1,0 +1,23 @@
+
+// TRASITIONS
+@mixin transitionAll( $secs ) {
+     -webkit-transition: all $secs ease-in-out;
+     -moz-transition: all $secs ease-in-out;
+     -o-transition: all $secs ease-in-out;
+     transition: all $secs ease-in-out;
+}
+
+
+
+@mixin animaStripes(  ) {
+     background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+     background-size: 1em 1em;
+     background-position: 0 0;
+
+     animation: stripeRun 0.5s linear infinite;
+
+     @keyframes stripeRun {
+          from {background-position: 0 0;}
+          to {background-position: 0 14px;}
+     }
+}

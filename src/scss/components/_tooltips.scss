@@ -1,0 +1,48 @@
+
+// TOOLTIPS
+
+$undetlineTool-color: nth( nth($colors,1),2);
+$tool-bg-color: nth( nth($colors,1),2);
+
+.tooltip {
+     display: inline-block;
+     position: relative;
+     border-bottom: 1px dashed $undetlineTool-color;
+ 
+     &:hover {
+         cursor: pointer;
+
+          .tooltip-text {
+               transform: scale(1);
+          }
+     }
+ }
+ 
+ .tooltip-text {
+     position: absolute;
+     bottom: 130%;
+     left: -25%;
+     transform: scale(0);
+     transform-origin: center bottom;
+     min-width: 200px;
+     padding: 10px 15px;
+     text-align: center;
+     border-radius: 5px;
+     box-shadow: 0 2px 4px #333;
+     
+     background: $tool-bg-color;
+     @include textColorLigthness ( $tool-bg-color );
+
+     @include transitionAll( 0.3s );
+ 
+     &::after {
+         position: absolute;
+         content: '';
+         top: 100%;
+         left: 50%;
+         transform: translateX(-50%);
+         border-width: 8px;
+         border-style: solid;
+         border-color: $tool-bg-color transparent transparent;
+     }
+ }

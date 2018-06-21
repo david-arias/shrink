@@ -1,0 +1,18 @@
+
+
+@mixin mediaQ_min_width( $maxW ) {
+	@media (min-width: $maxW ) {
+		@content;
+	}
+}
+
+@mixin mediaQ_minMax_width( $minW , $maxW ) {
+	@media (min-width: $minW) and (max-width: $maxW) {
+		@content;
+	}
+}
+
+@function breakpoint-infix($name, $breakpoints: $grid_breaks) {
+	$breaks : map-get($breakpoints, $name );
+	@return if($breaks == null, "", "_#{$name}");
+}

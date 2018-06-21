@@ -1,0 +1,1 @@
+document.querySelector(".mobile-menuTggl").addEventListener("click",function(){this.classList.toggle("open")}),console.log("Shrink is Ready!");

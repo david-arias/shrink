@@ -1,0 +1,154 @@
+
+
+// CARDS
+
+$cardCol-gutter: 30px;
+$cardCol-columns: 3;
+$cardCol-W-Size: 1200;
+
+
+.card {
+     border-radius: 5px;
+     border: thin solid #ccc;
+     overflow: hidden;
+     position: relative;
+
+     box-shadow: 3px 3px 6px rgba(#333, 0.3);
+
+     img {
+          display: block;
+     }
+
+     .card-header {
+          padding: 15px 15px 15px 15px;
+          border-bottom: thin solid #ccc;
+          background: lighten( #ccc , 17%);
+          font-family: $bold_typo;
+          font-size: 1.4em;
+          color: nth( nth($colors, 6),2);
+     }
+
+     .card-body {
+          padding: 15px 15px 20px 15px;
+
+          .card-ttl {
+               font-family: $bold_typo;
+               font-size: 1.3em;
+               margin: 0 0 5px 0;
+               color: nth( nth($colors, 6),2);
+          }
+          .card-subttl {
+               font-family: $regular_typo;
+               font-size: 1.2em;
+               margin: 0 0 5px 0;
+               color: lighten( nth( nth($colors, 6),2), 30%);
+          }
+          .card-txt {
+               font-family: $light_typo;
+               margin: 0 0 15px 0;
+               color: nth( nth($colors, 6),2);
+          }
+          .btn {
+               margin: 0 10px 0 0;
+               padding: 0 12px;
+               font-size: 0.8em;
+               height: 34px;
+               line-height: 34px;
+          }
+
+          &.img_overlay {
+               position: absolute;
+               top: 0;
+
+               &:before {
+                    content: "";
+                    width: 110%;
+                    height: 110%;
+                    background: rgba(#000, 0.7);
+                    top: 50%;
+                    left: 50%;
+                    z-index: 1;
+                    position: absolute;
+                    transform: translate(-50%, -50%);
+               }
+
+               .card-ttl {
+                    color: #fff;
+                    position: relative;
+                    z-index: 2;
+               }
+               .card-subttl {
+                    color: #fff;
+                    position: relative;
+                    z-index: 2;
+               }
+               .card-txt {
+                    color: #fff;
+                    position: relative;
+                    z-index: 2;
+               }
+               .btn {
+                    position: relative;
+                    z-index: 2;
+               }
+          }
+     }
+
+     .card-footer {
+          padding: 15px 15px 15px 15px;
+          border-top: thin solid #ccc;
+          background: lighten( #ccc , 17%);
+          font-family: $regular_typo;
+          font-size: 1.2em;
+          color: lighten( nth( nth($colors, 6),2), 30%);
+     }
+
+     .card-list {
+          list-style: none;
+
+          li {
+               &:first-child {
+                    border-top: thin solid #ccc;
+               }
+
+               padding: 15px;
+               border-bottom: thin solid #ccc;
+               margin: 0;
+          }
+     }
+
+     @each $bg, $bgColor in $colors {
+          &[color=#{$bg}]{
+
+               .card-ttl {
+                    @include textColorLigthness ( $bgColor );
+               }
+               .card-subttl {
+                    @include textColorLigthness ( $bgColor );
+               }
+               .card-txt {
+                    @include textColorLigthness ( $bgColor );
+               }
+          }
+     }
+}
+
+.card-columns {
+     column-count: $cardCol-columns;
+
+     @include mediaQ_minMax_width ( nth(nth($grid_breaks, 2 ),2), nth(nth($grid_breaks, 4),2)  ) {
+		column-count: $cardCol-columns - 1;
+	}
+     @include mediaQ_minMax_width ( nth(nth($grid_breaks, 1 ),2), nth(nth($grid_breaks, 2),2)  ) {
+		column-count: 1;
+     }
+     
+     .card {
+          display: inline-block;
+          column-break-inside: avoid;
+
+          margin-bottom: $cardCol-gutter / 2;
+
+          
+     }
+}

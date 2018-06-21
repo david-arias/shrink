@@ -1,0 +1,12 @@
+
+/* ELEMENTS LINKS */
+a {
+     color: nth( nth( $colors, 1) ,2);
+     text-decoration: none;
+     @extend %lightTypo;
+     
+
+     &:hover {
+           text-decoration: underline; 
+     }
+}

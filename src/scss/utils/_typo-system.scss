@@ -1,0 +1,85 @@
+
+
+%boldTypo {
+     font-family: $bold_typo;
+     font-weight: 900;
+}
+%boldItalicTypo {
+     font-style: italic;
+}
+%regularTypo {
+     font-family: $regular_typo;
+     font-weight: 400;
+}
+%regularItalicTypo {
+     font-style: italic;
+}
+%lightTypo {
+     font-family: $light_typo;
+     font-weight: 100;
+}
+%lightItalicTypo {
+     font-style: italic;
+}
+
+/* HEADING */
+
+@for $i from 1 through 6 {
+     h#{$i} {
+          font-size: nth( nth( $headings_sizes , $i ) ,2);
+          @extend %regularTypo;
+          margin: 0 0 15px 0;
+
+          small {
+               font-size: 0.7em;
+               @extend %lightTypo;
+          }
+     }
+}
+
+
+/* PARAGRAPH */
+b, strong {
+     @extend %boldTypo;
+
+     i {
+          @extend %boldItalicTypo;
+     }
+}
+
+i {
+     @extend %lightItalicTypo;
+}
+
+p {
+     @extend %lightTypo;
+     margin: 10px 0;
+
+     b, strong {
+          @extend %boldTypo;
+
+          i {
+               @extend %boldItalicTypo;
+          }
+     }
+
+     i {
+          @extend %lightItalicTypo;
+     }
+
+     small {
+          font-size: 0.8em;
+     }
+}
+
+
+/* TEXT ALIGN */
+.text-left {
+     text-align: left;
+}
+.text-center {
+     text-align: center;
+}
+.text-right {
+     text-align: right;
+}

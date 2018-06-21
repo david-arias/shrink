@@ -1,0 +1,23 @@
+
+/* - ❌ ❌ ❌ ❌ - */
+
+$debugColor: #2C3A47;
+$debugColorLight: #82589F;
+
+
+p {
+     // padding: 10px;
+}
+@mixin make_debugBorder() {
+     border: thin solid $debugColor;
+     background-color: $debugColor;
+     box-sizing: border-box;
+}
+@mixin make_debugBorderLight() {
+     border: thin solid $debugColorLight;
+     background-color: $debugColorLight;
+     box-sizing: border-box;
+}
+
+
+/* - ❌ ❌ ❌ ❌ - */

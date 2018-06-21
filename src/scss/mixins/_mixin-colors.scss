@@ -1,0 +1,23 @@
+
+
+// COLORS
+
+// color asign with attribute
+
+@mixin textColorLigthness ( $backColor ) {
+     @if (lightness($backColor) > 70) {
+          color: #111111;
+     } @else {
+          color: #ffffff;
+     }
+}
+
+@mixin colorWithAttr {
+     @each $bg, $bgColor in $colors {
+          &[color="#{$bg}"] {
+               background-color: $bgColor;
+
+               @include textColorLigthness ( $bgColor )
+          }
+     }
+}

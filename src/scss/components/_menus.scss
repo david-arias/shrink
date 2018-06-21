@@ -1,0 +1,77 @@
+
+// MENUS
+
+.nav {
+     display:flex;
+     border-radius: 5px;
+     overflow: hidden;
+
+     .nav-link {
+          padding: 15px;
+          text-decoration: none;
+          font-family: $regular_typo;
+          position: relative;
+          letter-spacing: 1px;
+
+          &:after {
+               content: "";
+               width: 0%;
+               height: 3px;
+               position: absolute;
+               bottom: 0;
+               left: 50%;
+               background: nth(nth($colors,1),2);
+               transform: translate(-50%, 0);
+
+               @include transitionAll( 0.3s );
+
+          }
+
+          &.disabled {
+               color: lighten( nth( nth($colors, 6),2), 55%);
+               pointer-events: none;
+          }
+
+          &:hover {
+               background: lighten( #ccc , 15%);
+
+               &:after {
+                    width: 100%;
+               }
+          }
+
+          &.active{
+               // background: lighten( #ccc , 15%);
+
+               &:after {
+                    width: 100%;
+               }
+          }
+     }
+
+     &.nav-bg {
+          background: lighten( #ccc , 17%);
+
+          .nav-link {
+               &:hover {
+                    background: lighten( #ccc , 12%);
+               }
+               &.active{
+                    // background: lighten( #ccc , 12%);
+               }
+          }
+     }
+
+     @include mediaQ_minMax_width ( nth(nth($grid_breaks, 1 ),2), nth(nth($grid_breaks, 2),2)  ) {
+          display:block;
+          
+          .nav-link {
+               display: block;
+               text-align: center;
+
+               &:after {
+                    display: none;
+               }
+          }
+     }
+}

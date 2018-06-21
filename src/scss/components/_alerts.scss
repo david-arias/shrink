@@ -1,0 +1,15 @@
+
+// ALERTS
+
+.alert {
+     margin: 15px 0;
+     padding: 15px;
+     border-radius: 5px;
+ }
+ 
+ @each $bg, $bgColor in $colors {
+     .alert-#{$bg} {
+         background: rgba($bgColor, 0.5);
+         color: darken($bgColor, 25%);
+     }
+ }

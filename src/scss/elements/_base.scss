@@ -1,0 +1,16 @@
+
+
+// ELEMENTS BASE
+
+body {
+     font-size: $remSize;
+     font-family: $light_typo;
+     line-height: 1.4;
+}
+*[color] {
+     @include colorWithAttr;
+}
+* {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+}
